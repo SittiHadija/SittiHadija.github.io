@@ -1,385 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sitti Hadija Portfolio</title>
+<meta name="color-scheme" content="dark">
+<title>Sitti Hadija | Accounting & Tax Specialist</title>
+<meta name="description" content="Accounting & Tax Specialist with 8 years of experience in Accounts Receivable, financial reporting, Indonesian tax compliance and finance workflow automation. Open to remote roles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout: ledger book. One reading column on the left, key figures set like a balance column. */
 :root{
-  --bg:#F2F5F3;
-  --surface:#FFFFFF;
-  --ink:#13211C;
-  --muted:#52625B;
-  --rule:#D3DDD8;
-  --accent:#0B6B50;
-  --accent-soft:#DCEFE8;
-  --flag:#B3361F;
-  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --f-body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
-  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --ink:#e8f0ef; --muted:#93a8ad; --line:#24373d;
+  --bg:#0b1417; --bg2:#0f1b1f; --card:#121f24;
+  --teal:#4fd1c0; --teal-dark:#8be3d8; --gold:#d9a84e; --soft:rgba(79,209,192,.12);
+  --radius:16px;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.28);
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0E1613;--surface:#15211C;--ink:#E7F0EC;--muted:#9BB0A7;--rule:#2A3B34;--accent:#4FC49C;--accent-soft:#17352B;--flag:#F08A73;color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0E1613;--surface:#15211C;--ink:#E7F0EC;--muted:#9BB0A7;--rule:#2A3B34;--accent:#4FC49C;--accent-soft:#17352B;--flag:#F08A73;color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1040px;margin-inline:auto}
-.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
-.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;letter-spacing:-.01em}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:28px}
 
-header.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding-block:24px;border-bottom:1px solid var(--rule)}
-.brand{font-family:var(--f-display);font-weight:700;font-size:20px}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:14px}
-nav a:hover{color:var(--ink)}
+nav{position:sticky;top:0;z-index:20;background:rgba(11,20,23,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;color:var(--ink)}
+.brand:hover{text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.9rem;margin-left:auto}
+nav ul a{color:var(--muted)}
+nav ul a:hover{color:var(--teal);text-decoration:none}
+.lang{font-size:.8rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--teal-dark);background:var(--card)}
+.lang:hover{border-color:var(--teal);text-decoration:none}
+@media(max-width:860px){nav ul{display:none}nav .wrap{justify-content:space-between}}
 
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;padding-block:64px 56px;align-items:end}
-.hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:700;letter-spacing:-.02em;margin-top:14px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p.lead{font-size:18px;color:var(--muted);max-width:52ch;margin:20px 0 0}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
-.chip{font-family:var(--f-mono);font-size:12px;padding:5px 10px;border:1px solid var(--rule);background:var(--surface);border-radius:3px}
+.hero{padding:84px 0 56px;background:linear-gradient(180deg,#10262a 0%,var(--bg) 100%)}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.82rem;color:var(--teal-dark);font-weight:500;margin-bottom:22px}
+.hero .tag i{width:8px;height:8px;border-radius:50%;background:#2fb67a;display:inline-block}
+.hero h1{font-size:clamp(2.3rem,6vw,3.7rem);font-weight:700;margin-bottom:12px}
+.hero .role{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--teal-dark);font-weight:500;margin-bottom:18px}
+.hero p.lead{max-width:680px;color:var(--muted);font-size:1.05rem;margin-bottom:28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.95rem;border:1.5px solid var(--teal)}
+.btn.primary{background:var(--teal);color:#06201d}
+.btn.primary:hover{background:var(--teal-dark);text-decoration:none}
+.btn.ghost{color:var(--teal);background:transparent}
+.btn.ghost:hover{background:var(--soft);text-decoration:none}
 
-.chart{background:var(--surface);border:1px solid var(--rule);padding:20px 20px 16px}
-.chart h2{font-size:15px;font-weight:500;font-family:var(--f-body)}
-.chart .sub{font-size:13px;color:var(--muted);margin:2px 0 0}
-.bars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:190px;align-items:end;margin-top:20px;border-bottom:1px solid var(--ink);position:relative}
-.bar{position:relative;background:var(--accent);min-height:2px}
-.bar.base{background:repeating-linear-gradient(135deg,var(--accent-soft) 0 5px,transparent 5px 10px);border:1px solid var(--accent);border-bottom:0}
-.bar span{position:absolute;left:0;right:0;top:-22px;text-align:center;font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
-.axis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
-.axis span{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-align:center}
-.chart .note{font-size:12px;color:var(--muted);margin:12px 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.stat b{display:block;font-family:'Fraunces',serif;font-size:2.1rem;color:var(--teal);line-height:1.1;margin-bottom:6px}
+.stat span.d{font-size:.88rem;color:var(--muted)}
 
-section{padding-block:56px;border-top:1px solid var(--rule)}
-.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px}
-.sec>h2{font-size:15px;font-family:var(--f-mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);align-self:start;position:sticky;top:16px}
-.sec h3{font-size:24px;font-weight:700}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.about p{color:var(--muted);margin-bottom:14px}
+.about p strong{color:var(--ink)}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);align-self:start}
+.facts h3{font-size:1.05rem;margin-bottom:12px}
+.facts ul{list-style:none;font-size:.92rem;color:var(--muted)}
+.facts li{padding:8px 0;border-bottom:1px dashed var(--line)}
+.facts li:last-child{border:0}
+.facts li b{color:var(--ink);font-weight:600}
 
-.summary p{margin:0 0 14px;font-size:17px;max-width:64ch}
-.summary p:last-child{margin:0}
+.band{background:var(--bg2);border-block:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:1.05rem;margin-bottom:10px;color:var(--teal-dark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.78rem;background:var(--soft);color:var(--teal-dark);padding:4px 10px;border-radius:999px;font-weight:500}
+.tools{margin-top:22px}
+.tools h3{font-size:1rem;margin-bottom:10px}
 
-.impact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.impact div{background:var(--surface);padding:22px}
-.impact .n{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1.05;letter-spacing:-.01em}
-.impact .n small{font-size:.5em;font-weight:500;color:var(--muted)}
-.impact p{margin:8px 0 0;font-size:14px;color:var(--muted)}
-.impact .where{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.timeline{position:relative;padding-left:26px;border-left:2px solid var(--line)}
+.job{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:var(--shadow)}
+.job::before{content:"";position:absolute;left:-35px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--bg)}
+.job.current::before{background:#2fb67a}
+.job header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin-bottom:4px}
+.job h3{font-size:1.2rem}
+.date{font-size:.85rem;color:var(--muted);font-weight:500}
+.org{color:var(--teal);font-weight:500;font-size:.95rem;margin-bottom:12px}
+.job ul{padding-left:18px;color:var(--muted);font-size:.95rem}
+.job li{margin-bottom:8px}
+.job li::marker{color:var(--gold)}
+.job li strong{color:var(--ink)}
+.badge{display:inline-block;font-size:.72rem;font-weight:600;background:rgba(47,182,122,.16);color:#6fe0ab;padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
 
-.job{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding-block:28px;border-bottom:1px solid var(--rule)}
-.job:first-child{padding-top:0}
-.job:last-child{border-bottom:0;padding-bottom:0}
-.job .when{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
-.job h3{font-size:21px}
-.job .org{color:var(--muted);font-size:15px}
-.job ul{margin:12px 0 0;padding-left:18px}
-.job li{margin-bottom:8px;max-width:68ch}
-.job li::marker{color:var(--accent)}
+.mix{margin-top:14px;background:var(--soft);border-radius:12px;padding:16px}
+.mix h4{font-size:.85rem;margin-bottom:10px;color:var(--teal-dark)}
+.bar-row{display:grid;grid-template-columns:70px 1fr 90px;gap:10px;align-items:center;font-size:.8rem;margin-bottom:8px;color:var(--muted)}
+.bar{height:12px;border-radius:6px;background:#1c3138;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.bar .cur{background:var(--teal)}
+.bar .old{background:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.75rem;color:var(--muted);margin-top:6px}
+.legend s{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;text-decoration:none}
 
-.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.proj{background:var(--surface);border:1px solid var(--rule);padding:24px;display:flex;flex-direction:column;gap:14px}
-.proj h3{font-size:20px}
-.proj p{margin:0;color:var(--muted);font-size:15px}
-.proj .tools{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
-.proj a.btn{display:inline-block;align-self:flex-start;font-family:var(--f-mono);font-size:13px;font-weight:500;padding:9px 14px;background:var(--accent);color:var(--bg);text-decoration:none;border-radius:3px}
-.proj a.btn:hover{filter:brightness(1.1)}
+.proj h3{font-size:1.15rem;color:var(--ink);margin-bottom:6px}
+.proj .stack{font-size:.82rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.proj p{font-size:.93rem;color:var(--muted);margin-bottom:14px}
 
-.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 32px}
-.skills h3{font-size:16px;font-family:var(--f-body);font-weight:600;margin-bottom:8px}
-.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.skills li{font-size:13px;padding:4px 9px;border:1px solid var(--rule);background:var(--surface);border-radius:3px}
+.reco{background:linear-gradient(135deg,#0c3a3c,#0f5c59);border:1px solid #1b5e5b;color:#fff;border-radius:22px;padding:44px 40px 40px;position:relative;overflow:hidden}
+.reco::before{content:"\201C";position:absolute;top:-30px;left:24px;font-family:'Fraunces',serif;font-size:11rem;color:rgba(255,255,255,.1);line-height:1}
+.reco .eyebrow{color:#f0cd8a;position:relative}
+.reco blockquote{position:relative;display:grid;gap:14px;margin:0 0 22px}
+.reco blockquote p{font-size:1.05rem;max-width:720px;color:#e6f2f1}
+.reco .who{position:relative;font-weight:600;color:#fff;font-size:1rem;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);max-width:720px}
+.reco .who span{display:block;font-weight:400;color:#bcd9d6;font-size:.85rem}
+.reco .note{position:relative;font-size:.8rem;color:#9fc7c3;margin-top:8px}
+.reco .btn{margin-top:18px;border-color:#fff;color:#fff;position:relative}
+.reco .btn:hover{background:rgba(255,255,255,.12);text-decoration:none}
+@media(max-width:560px){.reco{padding:40px 22px 28px}}
 
-.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
-.edu h3{font-size:16px;font-family:var(--f-body);font-weight:600;margin-bottom:10px}
-.edu ul{margin:0;padding:0;list-style:none}
-.edu li{padding-block:10px;border-bottom:1px solid var(--rule);font-size:15px}
-.edu li small{display:block;color:var(--muted);font-size:13px;font-family:var(--f-mono)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.list{list-style:none}
+.list li{padding:12px 0;border-bottom:1px dashed var(--line);font-size:.93rem;color:var(--muted)}
+.list li:last-child{border:0}
+.list li b{display:block;color:var(--ink);font-weight:600}
 
-.contact{display:grid;gap:10px;font-size:17px}
-.contact .row{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
-.contact .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:90px}
-.contact .v{word-break:break-all;user-select:all}
+.contact{background:linear-gradient(135deg,#132a30,#0f1d22);border:1px solid var(--line);border-radius:22px;padding:48px 36px;text-align:center}
+.contact h2{margin-bottom:10px}
+.contact p{color:var(--muted);max-width:560px;margin:0 auto 24px}
+.contact .btns{justify-content:center}
+.contact .btn.primary{background:var(--gold);border-color:var(--gold);color:#1b1405}
+.contact .btn.primary:hover{background:#e6b95f}
+.contact .btn.ghost{color:var(--ink);border-color:rgba(255,255,255,.3)}
+.contact .btn.ghost:hover{background:rgba(255,255,255,.08)}
+.meta{margin-top:22px;font-size:.88rem;color:#7f949a}
+footer{text-align:center;padding:28px 20px 40px;font-size:.82rem;color:var(--muted)}
 
-.rec{background:var(--surface);border:1px solid var(--rule);padding:32px;margin:0}
-.rec blockquote{margin:0;display:grid;gap:14px}
-.rec blockquote p{margin:0;font-size:17px;max-width:64ch}
-.rec figcaption{margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);display:grid;gap:2px}
-.rec .who{font-family:var(--f-display);font-weight:700;font-size:20px}
-.rec .meta{font-size:14px;color:var(--muted)}
-.rec .src{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:6px}
-footer{padding-block:32px 40px;border-top:1px solid var(--rule);color:var(--muted);font-size:13px;font-family:var(--f-mono)}
-
-@media (max-width:820px){
-  .hero{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:44px 40px}
-  .sec{grid-template-columns:minmax(0,1fr);gap:20px}
-  .sec>h2{position:static}
-  .projects,.skills,.edu{grid-template-columns:minmax(0,1fr)}
-}
-@media (max-width:480px){
-  .impact{grid-template-columns:minmax(0,1fr)}
-  .bars{height:170px}
-}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
-<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">Sitti Hadija</div>
-    <nav aria-label="Navigation">
-      <a href="#impact">Impact</a>
-      <a href="#experience">Experience</a>
-      <a href="#recommendation">Recommendation</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-      <a href="index.html">Bahasa Indonesia</a>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <div>
-      <div class="label">Accounting · Tax · Finance Automation</div>
-      <h1>Collected up to <em>IDR 1 billion</em> a month in receivables, and built bookkeeping from scratch.</h1>
-      <p class="lead">8 years in accounting, Indonesian tax, and finance workflows. Now building AI-powered finance automation on top of that foundation.</p>
-      <div class="chips">
-        <span class="chip">PPh 21 · PPh 23 · VAT</span>
-        <span class="chip">Coretax DJP</span>
-        <span class="chip">Mekari Jurnal · Xero</span>
-        <span class="chip">Accounts Receivable</span>
-      </div>
-    </div>
-
-    <figure class="chart" style="margin:0" aria-label="Monthly receivables collections chart at PT JMMS">
-      <h2>Monthly receivables collected</h2>
-      <p class="sub">PT JMMS, in IDR million</p>
-      <div class="bars" role="img" aria-label="Before: about 100 to 200 million. Month 1: 400 million. Month 2: 700 million. Month 3: 1,000 million">
-        <div class="bar base" style="height:20%"><span>100–200</span></div>
-        <div class="bar" style="height:40%"><span>400</span></div>
-        <div class="bar" style="height:70%"><span>700</span></div>
-        <div class="bar" style="height:100%"><span>1,000</span></div>
-      </div>
-      <div class="axis"><span>Before</span><span>Month 1</span><span>Month 2</span><span>Month 3</span></div>
-      <p class="note">The first bar shows the upper end of the IDR 100–200 million range.</p>
-    </figure>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Sitti Hadija</a>
+    <ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#recommendation">Recommendation</a></li><li><a href="#contact">Contact</a></li></ul>
+    <a class="lang" href="index.html" hreflang="id">Bahasa Indonesia</a>
   </div>
+</nav>
 
-  <section id="summary">
-    <div class="sec">
-      <h2>Summary</h2>
-      <div class="summary">
-        <p>I am an accountant and tax consultant with experience in accounts receivable, financial reporting, bank reconciliation, and Indonesian tax compliance: PPh 21, PPh 23, VAT (PPN), Corporate Income Tax Return (SPT Tahunan Badan), and Coretax DJP.</p>
-        <p>Twice I have built an accounting system from scratch, at Klinik B'care and at PT Hayuri Berkah Berlimpah. That taught me how to design finance workflows, and I have since added automation and AI skills, including a prototype IFRS-ready accounting system in Excel and Google Sheets.</p>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="tag"><i></i> Open to full-time remote roles</div>
+    <h1>Sitti Hadija</h1>
+    <p class="role">Accounting &amp; Tax Specialist · 8 Years of Experience</p>
+    <p class="lead">I specialize in Accounts Receivable, financial reporting, Indonesian tax compliance and finance workflow automation. I turn messy records and overdue invoices into clean books, on-time filings and cash in the bank.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="#experience">View experience</a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:24px">
+  <div class="wrap"><div class="stats"><div class="stat reveal"><b><span data-count="300">0</span>%+</b><span class="d">Increase in monthly AR collections within 3 months at PT JMMS</span></div><div class="stat reveal"><b>IDR <span data-count="2.1" data-dec="1">0</span>B</b><span class="d">Total receivables collected in 3 months</span></div><div class="stat reveal"><b><span data-count="0">0</span></b><span class="d">Late tax filings across ~8 freelance clients</span></div><div class="stat reveal"><b>IDR 200M → 700M</b><span class="d">Annual revenue growth over a 4-year tenure at PT Hayuri Berkah Berlimpah</span></div></div></div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Accounting, tax and finance, built into systems that work</h2>
+    <div class="about">
+      <div class="reveal"><p>I am an accounting, tax and finance professional with <strong>8 years of experience</strong> in Accounts Receivable (AR), collections, invoicing, financial reporting, bank reconciliation, month-end closing and Indonesian tax compliance (<strong>PPh 21, PPh 23, VAT/PPN, Corporate Income Tax, Coretax DJP</strong>).</p><p>At PT JMMS, I increased monthly AR collections from roughly IDR 100–200 million to <strong>IDR 1 billion within 3 months</strong>, while shifting the collection mix from 70% overdue prior-period balances to <strong>90% current-period invoices</strong>.</p><p>I have built accounting and finance workflow systems from scratch <strong>twice</strong>: a manual-to-structured accounting system at Klinik B'care, and a Mekari Jurnal-based accounting cycle at PT Hayuri Berkah Berlimpah, where the company owner gave me a professional recommendation.</p><p>I have since extended this workflow-design foundation into <strong>finance automation and AI-powered process automation</strong>, including an IFRS-ready accounting system prototype in Excel/Google Sheets. I currently provide freelance tax, accounting and bookkeeping services, and I am looking for full-time remote Accounting, Accounts Receivable and Tax roles.</p></div>
+      <aside class="facts reveal"><h3>Quick facts</h3><ul><li><b>Location:</b> Indonesia</li><li><b>Availability:</b> Full-time remote roles</li><li><b>Focus:</b> AR · Tax · Financial Reporting · Automation</li><li><b>Languages:</b> Indonesian · English</li><li><b>Certified:</b> Brevet A &amp; B · Xero Associate</li></ul></aside>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="band">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2>Core competencies</h2>
+    <div class="grid"><div class="card reveal"><h3>Accounts Receivable &amp; Payable</h3><div class="chips"><span class="chip">Invoicing</span><span class="chip">Collections</span><span class="chip">Overdue Invoice Follow-Up</span><span class="chip">Aging Report</span><span class="chip">Payment Processing</span><span class="chip">Bank Reconciliation</span><span class="chip">Cash Flow Management</span><span class="chip">Cash Control</span></div></div><div class="card reveal"><h3>Financial Reporting &amp; Analysis</h3><div class="chips"><span class="chip">Financial Statements</span><span class="chip">General Ledger</span><span class="chip">Trial Balance</span><span class="chip">Profit &amp; Loss</span><span class="chip">Balance Sheet</span><span class="chip">Cash Flow Analysis</span><span class="chip">Month-End Closing</span><span class="chip">Budgeting</span><span class="chip">Management Reporting</span><span class="chip">IFRS-Ready Reporting (project)</span></div></div><div class="card reveal"><h3>Indonesian Tax &amp; Compliance</h3><div class="chips"><span class="chip">PPh 21</span><span class="chip">PPh 23</span><span class="chip">VAT (PPN)</span><span class="chip">Tax Invoice</span><span class="chip">Corporate Tax Return (SPT Tahunan Badan)</span><span class="chip">Tax Accounting</span><span class="chip">Coretax DJP</span></div></div><div class="card reveal"><h3>Finance Workflow &amp; Automation</h3><div class="chips"><span class="chip">Workflow Design</span><span class="chip">Accounting System Implementation</span><span class="chip">SOP Development</span><span class="chip">Process Automation</span><span class="chip">AI-Powered Automation</span><span class="chip">KPI Dashboard</span><span class="chip">Data Visualization</span></div></div></div>
+    <div class="tools reveal"><h3>Tools</h3><div class="chips"><span class="chip">Mekari Jurnal</span><span class="chip">Xero</span><span class="chip">Coretax DJP</span><span class="chip">ERP Software &amp; Implementation</span><span class="chip">Visual Hotel Program (VHP)</span><span class="chip">Microsoft Excel (VLOOKUP, HLOOKUP, Pivot Table)</span><span class="chip">Google Sheets</span><span class="chip">Prompt Engineering</span></div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've made an impact</h2>
+    <div class="timeline"><article class="job current reveal"><header><h3>Freelance Tax &amp; Accounting / Bookkeeping Consultant<span class="badge">Current</span></h3><span class="date">May 2026 – Present</span></header><div class="org">Self-Employed · Indonesia</div><ul><li>Provide freelance tax, accounting and bookkeeping services to business clients.</li><li>Continue handling Indonesian tax compliance and accounting records for clients using Coretax DJP.</li></ul></article><article class="job reveal"><header><h3>Accounts Receivable (AR) &amp; Tax Staff (Contract)</h3><span class="date">Jan 2026 – Apr 2026 · 3 months</span></header><div class="org">PT JMMS · Indonesia</div><ul><li>Raised monthly AR collections by <strong>over 300% within 3 months</strong>, from approximately IDR 100–200 million to IDR 400 million, IDR 700 million, then <strong>IDR 1 billion</strong>, managing the full AR cycle for accrual/term-based transactions.</li><li>Cleared prior-period overdue receivables while keeping current invoices on schedule. Approximately <strong>IDR 2.1 billion collected in total</strong>, of which about IDR 520 million came from balances outstanding before the role began.</li><li>Collected current-year and prior-year receivables by identifying the PIC contact per project and running consistent WhatsApp and email follow-ups on outstanding and overdue invoices; resolved communication gaps through face-to-face meetings.</li><li>Prepared VAT (PPN) tax invoices alongside customer invoicing and completed PPh 21 and Annual Corporate Income Tax Return (SPT Tahunan Badan) filings.</li><li>Ensured accurate, timely Indonesian tax compliance across VAT, income tax and corporate tax reporting using Coretax DJP.</li></ul><div class="mix"><h4>Collection mix: current-period vs. prior-period overdue</h4><div class="bar-row"><span>Month 1</span><div class="bar"><i class="cur" style="width:30%"></i><i class="old" style="width:70%"></i></div><span>30% / 70%</span></div><div class="bar-row"><span>Month 2</span><div class="bar"><i class="cur" style="width:80%"></i><i class="old" style="width:20%"></i></div><span>80% / 20%</span></div><div class="bar-row"><span>Month 3</span><div class="bar"><i class="cur" style="width:90%"></i><i class="old" style="width:10%"></i></div><span>90% / 10%</span></div><div class="legend"><span><s style="background:var(--teal)"></s>Current-period invoices</span><span><s style="background:var(--gold)"></s>Prior-period overdue</span></div></div></article><article class="job reveal"><header><h3>Freelance Tax &amp; Accounting Consultant</h3><span class="date">Mar 2023 – Dec 2025</span></header><div class="org">Self-Employed · Indonesia</div><ul><li>Managed Indonesian tax compliance for approximately <strong>8 clients</strong> (small businesses/UMKM and individual taxpayers), handling PPh 21, PPh 23 and annual tax returns (SPT Tahunan) using DJP Online and Coretax DJP.</li><li>Achieved <strong>zero late filings</strong> by guiding clients to keep orderly tax records and report on time.</li></ul></article><article class="job reveal"><header><h3>Accounting and Tax Manager</h3><span class="date">Dec 2018 – Feb 2023</span></header><div class="org">PT Hayuri Berkah Berlimpah · Bekasi</div><ul><li><strong>Built a finance workflow system from scratch:</strong> transformed manual bookkeeping into a systematized accounting cycle in Mekari Jurnal, from raw sales, purchase and bank transaction data to general ledger, balance sheet and profit and loss statements.</li><li>Owned end-to-end Indonesian tax compliance (SPT Tahunan Badan, PPh 21, VAT/PPN) alongside daily bank reconciliation and cash flow control.</li><li>Advised ownership through monthly budgeting reviews and data visualization presentations, identifying cost-efficiency opportunities and profit-growth levers.</li><li>Contributed to annual revenue growth from approximately <strong>IDR 200 million to IDR 700 million</strong> over a 4-year tenure through consistent financial analysis and strategic advisory.</li><li>Received a professional recommendation from the company owner (<a href="#recommendation">read it below</a>, also on LinkedIn).</li></ul></article><article class="job reveal"><header><h3>Accounting Staff (General Cashier &amp; Accounts Payable)</h3><span class="date">Mar 2017 – Feb 2018</span></header><div class="org">Metropolitan Golden Management – Horison Hotels Group · Mimika Baru</div><ul><li>Managed daily cash collection, bank deposits and bank reconciliation across Front Office and F&amp;B revenue streams, recording transactions in Visual Hotel Program (VHP).</li><li>Maintained a <strong>zero-discrepancy</strong> cash record and zero-complaint track record throughout the tenure.</li><li>Administered the full Accounts Payable (AP) cycle, including aging schedules, vendor payment proposals and General Manager approvals, with payments issued via cheque/voucher to uphold internal cash-control policy.</li><li>Delivered daily cash reports and supported month-end closing for the Chief Accounting Officer.</li></ul></article><article class="job reveal"><header><h3>Accounting Staff (Full-Charge)</h3><span class="date">Jun 2014 – Jan 2017</span></header><div class="org">Klinik B'care · Mimika Baru</div><ul><li><strong>Designed and built a complete finance workflow system from scratch,</strong> moving the clinic from manual records to a structured accounting system using Excel (VLOOKUP/HLOOKUP, pivot tables) and data visualization, covering the full cycle from general journal to profit and loss statement and balance sheet.</li><li>Delivered accurate financial reports that enabled the clinic to secure <strong>bank financing eligibility</strong> and win MoUs with multiple corporate partners for routine medical check-up (MCU) services and employee healthcare.</li><li>Supported clinic revenue growth of <strong>300%</strong>, from approximately IDR 50 million to IDR 200 million in monthly turnover, through improved financial transparency and credibility.</li></ul></article></div>
+  </div>
+</section>
+
+<section id="projects" class="band">
+  <div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2>Finance meets automation</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div class="card proj reveal"><h3>FinAuto: AI-Powered Finance Workflow Automation</h3><div class="stack">Gemini AI · Financial Process Automation</div><p>An AI-powered finance automation tool that extracts e-receipts, bank mutations and digital invoices from an inbox, maps transactions to the Chart of Accounts using AI, and syncs structured data to a centralized database for real-time dashboards.</p><a class="btn ghost" href="https://gemini.google.com/gem-labs/1O0A09YrmawLOmNGrHoJsAUAtn047r2rE" target="_blank" rel="noopener">View project</a></div><div class="card proj reveal"><h3>IFRS-Ready Accounting Operating System for SMEs</h3><div class="stack">Microsoft Excel · Google Sheets</div><p>A spreadsheet-based prototype covering Chart of Accounts, journal entries, general ledger, trial balance, profit and loss, balance sheet, cash flow statement, annual reporting, a management dashboard and IFRS compliance checking, built with simulated data.</p><a class="btn ghost" href="https://docs.google.com/spreadsheets/d/1XLF4rTfcgBC3oD7KgW_aYSsRx3481-Do/edit?usp=sharing" target="_blank" rel="noopener">View project</a></div></div>
+  </div>
+</section>
+
+<section id="recommendation">
+  <div class="wrap">
+    <div class="reco reveal">
+      <div class="eyebrow">Professional recommendation</div>
+      <blockquote><p>I had the pleasure of working with Sitti Hadija at PT Hayuri Berkah Berlimpah (Hijab Hayuri), where she was responsible for accounting and tax activities.</p><p>She is a reliable, detail-oriented, and responsible professional. She contributed to improving our accounting processes, supporting financial reporting and cash flow management, and providing valuable financial insights for business decisions.</p><p>I particularly appreciated her sense of ownership, commitment to her responsibilities, and ability to handle financial matters with care and professionalism. I would highly recommend her to any company looking for a dependable accounting and finance professional.</p></blockquote>
+      <div class="who">Hijab Hayuri<span>Owner, PT Hayuri Berkah Berlimpah · managed Sitti directly</span></div>
+      <p class="note">LinkedIn recommendation · September 30, 2026</p>
+      <a class="btn" href="https://www.linkedin.com/in/sitti-hadija-3b1096158/" target="_blank" rel="noopener">See it on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap two">
+    <div class="card reveal"><h3>Education</h3><ul class="list"><li><b>Accounting Professional Education (PPAk), Accounting and Business/Management</b>Perbanas Institute · Dec 2021 – Aug 2022</li><li><b>Bachelor's Degree, Taxation Policy and Administration</b>Institut Ilmu Sosial dan Manajemen (STIAMI) · Jul 2019 – Jan 2021</li><li><b>Diploma 3, Banking, Corporate, Finance, and Securities Law</b>STIE Jambatan Bulan · Jun 2013 – Mar 2016</li></ul></div>
+    <div class="card reveal"><h3>Certifications</h3><ul class="list"><li><b>Brevet A &amp; B</b>Indonesian Tax Certification</li><li><b>Xero Associate Certification</b></li><li><b>Mekari Jurnal Authorized Partner</b></li><li><b>AI Fundamentals</b>Foundations for Understanding AI</li><li><b>Getting Started with Data</b></li></ul></div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>Let's work together</h2>
+      <p>I'm looking for a full-time remote role in Accounting, Accounts Receivable or Tax. Feel free to reach out. Additional references are available upon request.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:sitihadija48@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/sitti-hadija-3b1096158/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <div class="meta">sitihadija48@gmail.com · Indonesia</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="impact">
-    <div class="sec">
-      <h2>Impact</h2>
-      <div class="impact">
-        <div>
-          <div class="where">PT JMMS · 2025–2026</div>
-          <div class="n">300%+ <small>in 3 months</small></div>
-          <p>Increase in monthly receivables collections, from about IDR 100–200 million to IDR 1 billion.</p>
-        </div>
-        <div>
-          <div class="where">PT Hayuri · 2018–2023</div>
-          <div class="n">IDR 200 <small>M</small> → IDR 700 <small>M</small></div>
-          <p>Revenue growth over 4 years through financial analysis and strategic advice to the owners.</p>
-        </div>
-        <div>
-          <div class="where">Klinik B'care · 2014–2017</div>
-          <div class="n">IDR 50 <small>M</small> → IDR 200 <small>M</small></div>
-          <p>Monthly turnover up 300%. Accurate reports made the clinic eligible for bank financing and won MoUs with several companies.</p>
-        </div>
-        <div>
-          <div class="where">Tax Consultant · 2023–2025</div>
-          <div class="n">0 <small>late filings</small></div>
-          <p>About 8 clients (small businesses and individual taxpayers), every return filed on time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="sec">
-      <h2>Experience</h2>
-      <div>
-        <article class="job">
-          <div class="when">MAY 2025 – APRIL 2026</div>
-          <h3>Accounts Receivable &amp; Tax Staff</h3>
-          <div class="org">PT JMMS</div>
-          <ul>
-            <li>Managed the full receivables cycle for accrual/term-based transactions and raised monthly collections from about IDR 100–200 million to IDR 400 million, IDR 700 million, then IDR 1 billion.</li>
-            <li>Resolved long-outstanding balances by identifying the PIC contact for each project and following up consistently by WhatsApp and email.</li>
-            <li>Prepared VAT (PPN) tax invoices alongside customer invoicing, and completed PPh 21 and Annual Corporate Income Tax Return filings through Coretax DJP.</li>
-          </ul>
-        </article>
-        <article class="job">
-          <div class="when">MARCH 2023 – APRIL 2025</div>
-          <h3>Freelance Tax Consultant</h3>
-          <div class="org">Self-employed</div>
-          <ul>
-            <li>Handled Indonesian tax compliance for about 8 clients (small businesses and individual taxpayers): PPh 21, PPh 23, and annual returns through DJP Online and Coretax DJP.</li>
-            <li>Achieved zero late filings by guiding clients to keep orderly tax records and report on time.</li>
-          </ul>
-        </article>
-        <article class="job">
-          <div class="when">DECEMBER 2018 – FEBRUARY 2023</div>
-          <h3>Accounting and Tax Manager</h3>
-          <div class="org">PT Hayuri Berkah Berlimpah · Bekasi</div>
-          <ul>
-            <li>Built the finance workflow from scratch: turned manual bookkeeping into an accounting cycle in Mekari Jurnal, from raw sales, purchase, and bank data to the general ledger, balance sheet, and profit and loss statement.</li>
-            <li>Owned end-to-end tax compliance (SPT Tahunan Badan, PPh 21, VAT) alongside daily bank reconciliation and cash flow control.</li>
-            <li>Advised ownership through monthly budget reviews and data visualization presentations, finding cost-efficiency opportunities and profit-growth levers.</li>
-            <li>Contributed to revenue growth from about IDR 200 million to IDR 700 million over a 4-year tenure.</li>
-          </ul>
-        </article>
-        <article class="job">
-          <div class="when">MARCH 2017 – FEBRUARY 2018</div>
-          <h3>Accounting Staff (General Cashier &amp; Accounts Payable)</h3>
-          <div class="org">Metropolitan Golden Management – Horison Hotels Group · Mimika Baru</div>
-          <ul>
-            <li>Managed daily cash collection, bank deposits, and bank reconciliation across Front Office and F&amp;B revenue, recording transactions in Visual Hotel Program (VHP).</li>
-            <li>Kept a zero-discrepancy cash record and a zero-complaint track record throughout the tenure.</li>
-            <li>Ran the full accounts payable cycle: aging schedules, vendor payment proposals, General Manager approvals, and payments by cheque/voucher in line with internal cash-control policy.</li>
-            <li>Delivered daily cash reports and supported month-end closing for the Chief Accounting Officer.</li>
-          </ul>
-        </article>
-        <article class="job">
-          <div class="when">JUNE 2014 – JANUARY 2017</div>
-          <h3>Accounting Staff (Full-Charge)</h3>
-          <div class="org">Klinik B'care · Mimika Baru</div>
-          <ul>
-            <li>Designed and built a complete finance workflow from scratch, moving the clinic from manual records to a structured accounting system in Excel (VLOOKUP/HLOOKUP, pivot tables) with data visualization, covering the cycle from general journal to profit and loss statement and balance sheet.</li>
-            <li>Delivered accurate financial reports that made the clinic eligible for bank financing and won MoUs with several corporate partners for routine medical check-ups (MCU) and employee healthcare.</li>
-            <li>Supported 300% growth in monthly turnover, from about IDR 50 million to IDR 200 million.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="recommendation">
-    <div class="sec">
-      <h2>Recommendation</h2>
-      <figure class="rec">
-        <blockquote>
-          <p>I had the pleasure of working with Sitti Hadija at PT Hayuri Berkah Berlimpah (Hijab Hayuri), where she was responsible for accounting and tax activities.</p>
-          <p>She is a reliable, detail-oriented, and responsible professional. She contributed to improving our accounting processes, supporting financial reporting and cash flow management, and providing valuable financial insights for business decisions.</p>
-          <p>I particularly appreciated her sense of ownership, commitment to her responsibilities, and ability to handle financial matters with care and professionalism. I would highly recommend her to any company looking for a dependable accounting and finance professional.</p>
-        </blockquote>
-        <figcaption>
-          <span class="who">Hijab Hayuri</span>
-          <span class="meta">PT Hayuri Berkah Berlimpah · managed Sitti directly</span>
-          <span class="src">LinkedIn recommendation · September 30, 2026</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="sec">
-      <h2>Projects</h2>
-      <div class="projects">
-        <article class="proj">
-          <div class="label">Finance Automation · AI</div>
-          <h3>FinAuto</h3>
-          <p>An AI-powered finance automation tool. It extracts e-receipts, bank mutations, and digital invoices from an inbox, maps transactions to the Chart of Accounts using AI, and syncs structured data to a central database for real-time dashboards.</p>
-          <div class="tools"><span class="chip">Gemini AI</span><span class="chip">Financial Process Automation</span></div>
-          <a class="btn" href="https://gemini.google.com/gem-labs/1O0A09YrmawLOmNGrHoJsAUAtn047r2rE" target="_blank" rel="noopener">Open FinAuto</a>
-        </article>
-        <article class="proj">
-          <div class="label">Spreadsheet · Prototype</div>
-          <h3>IFRS-Ready Accounting System for SMEs</h3>
-          <p>A prototype finance workflow with simulated data: Chart of Accounts, journal entries, general ledger, trial balance, profit and loss, balance sheet, cash flow statement, annual reporting, management dashboard, and IFRS compliance checking.</p>
-          <div class="tools"><span class="chip">Microsoft Excel</span><span class="chip">Google Sheets</span></div>
-          <a class="btn" href="https://docs.google.com/spreadsheets/d/1XLF4rTfcgBC3oD7KgW_aYSsRx3481-Do/edit?usp=sharing" target="_blank" rel="noopener">Open Spreadsheet</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="sec">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div>
-          <h3>Receivable &amp; Payable</h3>
-          <ul><li>Accounts Receivable</li><li>Collections</li><li>Aging Schedule</li><li>Accounts Payable</li><li>Bank Reconciliation</li><li>Cash Flow Management</li><li>Cash Control</li></ul>
-        </div>
-        <div>
-          <h3>Reporting &amp; Analysis</h3>
-          <ul><li>Financial Statements</li><li>General Ledger</li><li>Trial Balance</li><li>Profit and Loss</li><li>Balance Sheet</li><li>Month-End Closing</li><li>Budgeting</li><li>Management Reporting</li><li>IFRS-Ready Reporting (project)</li></ul>
-        </div>
-        <div>
-          <h3>Indonesian Tax</h3>
-          <ul><li>PPh 21</li><li>PPh 23</li><li>VAT (PPN)</li><li>Tax Invoice</li><li>Corporate Income Tax Return</li><li>Tax Accounting</li><li>Coretax DJP</li></ul>
-        </div>
-        <div>
-          <h3>Workflow &amp; Automation</h3>
-          <ul><li>Finance Workflow Design</li><li>Accounting System Implementation</li><li>SOP Development</li><li>Financial Process Automation</li><li>AI-Powered Finance Automation</li><li>KPI Dashboard</li><li>Data Visualization</li><li>Prompt Engineering</li></ul>
-        </div>
-        <div>
-          <h3>Software</h3>
-          <ul><li>Mekari Jurnal</li><li>Xero</li><li>Coretax DJP</li><li>ERP</li><li>Visual Hotel Program</li><li>Excel (VLOOKUP, HLOOKUP, Pivot)</li><li>Google Sheets</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="sec">
-      <h2>Education &amp; Certifications</h2>
-      <div class="edu">
-        <div>
-          <h3>Education</h3>
-          <ul>
-            <li>Accounting Professional Education (PPAk), Accounting and Business/Management<small>Perbanas Institute · Dec 2021 – Aug 2022</small></li>
-            <li>Bachelor's Degree, Taxation Policy and Administration<small>STIAMI · Jul 2019 – Jan 2021</small></li>
-            <li>Diploma 3, Banking, Corporate, Finance, and Securities Law<small>STIE Jambatan Bulan · Jun 2013 – Mar 2016</small></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Certifications</h3>
-          <ul>
-            <li>Brevet A &amp; B (Indonesian Tax Certification)</li>
-            <li>Xero Associate Certification</li>
-            <li>Mekari Jurnal Authorized Partner</li>
-            <li>AI Fundamentals: Foundations for Understanding AI</li>
-            <li>Getting Started with Data</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="sec">
-      <h2>Contact</h2>
-      <div class="contact">
-        <div class="row"><span class="k">Email</span><span class="v mono">sitihadija48@gmail.com</span></div>
-        <div class="row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/sitti-hadija-3b1096158/" target="_blank" rel="noopener">linkedin.com/in/sitti-hadija-3b1096158</a></div>
-        <div class="row"><span class="k">Location</span><span>Indonesia</span></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>Sitti Hadija · Updated October 2026</footer>
-</div>
-
+<footer>© <span id="yr"></span> Sitti Hadija · Accounting &amp; Tax Specialist</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var io = new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var comma = document.documentElement.lang === 'id';
+function fmt(v,dec){var s=v.toFixed(dec);return comma?s.replace('.',','):s;}
+var co = new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting) return;
+  var el=e.target,end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0);
+  co.unobserve(el);
+  if(reduce||end===0){el.textContent=fmt(end,dec);return;}
+  var t0=performance.now(),dur=1200;
+  (function tick(t){
+    var p=Math.min((t-t0)/dur,1);
+    el.textContent=fmt(end*(1-Math.pow(1-p,3)),dec);
+    if(p<1) requestAnimationFrame(tick);
+  })(t0);
+});},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el);});
+</script>
 </body>
 </html>
