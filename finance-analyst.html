@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sitti Hadija | Accountant and Finance Analyst Portfolio</title>
+<meta name="description" content="Portfolio and case files of Sitti Hadija, an accountant with 8 years in accounting, tax and finance, moving into finance analysis, data and automation.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a plain black page. Each job is a case file with its result drawn as a small bar chart. */
+:root{
+  --paper:#000000; --card:#0f1110; --ink:#ecf1ee; --ink-2:#9ba6a0; --rule:#2b2f2d;
+  --accent:#6fcfa0; --accent-ink:#04120b;
+  --new:#52b88c; --old:#e08577; --seg-ink:#04120b; --hatch:#56605b;
+  color-scheme:dark;
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background-color:var(--paper); color:var(--ink);
+  font-family:var(--f-body); font-size:16px; line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0;
+}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display); font-weight:700; line-height:1.1; margin:0; text-wrap:balance; letter-spacing:-0.01em}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-2)}
+
+.sheet{
+  max-width:1040px; margin:0 auto; padding:28px 0 56px;
+  display:flex; flex-direction:column; gap:80px; min-width:0;
+}
+@media (min-width:820px){ .sheet{padding-top:36px} }
+
+/* top bar */
+.top{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px 24px}
+.brand{font-family:var(--f-display); font-weight:700; font-size:20px}
+.nav{display:flex; flex-wrap:wrap; gap:6px 22px; font-family:var(--f-mono); font-size:13px}
+.nav a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule)}
+.nav a:hover{border-bottom-color:var(--accent); color:var(--accent)}
+
+/* hero */
+.hero{display:flex; flex-direction:column; gap:28px}
+.hero h1{font-size:clamp(2.1rem,5.4vw,3.7rem); max-width:18ch}
+.about{max-width:62ch; font-size:18px; color:var(--ink)}
+.actions{display:flex; flex-wrap:wrap; gap:12px}
+.btn{
+  display:inline-block; font-family:var(--f-body); font-weight:600; font-size:15px; text-decoration:none;
+  padding:12px 20px; border:2px solid var(--accent); background:var(--accent); color:var(--accent-ink); cursor:pointer;
+}
+.btn.ghost{background:transparent; color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.figures{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:2px solid var(--ink); border-bottom:1px solid var(--rule); background:var(--paper)}
+.fig{padding:18px 18px 18px 0; display:flex; flex-direction:column; gap:6px; min-width:0}
+.fig + .fig{padding-left:18px; border-left:1px solid var(--rule)}
+.fig .n{font-family:var(--f-mono); font-weight:500; font-size:clamp(1.4rem,3vw,2rem); line-height:1.1}
+.fig .c{font-size:14px; color:var(--ink-2); line-height:1.45}
+@media (max-width:720px){
+  .figures{grid-template-columns:1fr}
+  .fig,.fig + .fig{padding:14px 0; border-left:0}
+  .fig + .fig{border-top:1px solid var(--rule)}
+}
+
+/* section heads */
+.sec{display:flex; flex-direction:column; gap:28px; min-width:0}
+.sec-head{display:flex; flex-direction:column; gap:10px; max-width:64ch}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.sec-head p{color:var(--ink-2)}
+
+/* positioning */
+.pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--ink); padding:20px; display:flex; flex-direction:column; gap:12px; min-width:0}
+.pillar h3{font-size:1.35rem}
+.pillar .lead{color:var(--ink-2); font-size:15px}
+.pillar ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; font-size:15px}
+.tag{align-self:flex-start; font-family:var(--f-mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--accent); color:var(--accent)}
+.tag.live{background:var(--accent); color:var(--accent-ink)}
+
+/* case files */
+.cases{display:flex; flex-direction:column; gap:56px}
+.case{border-top:2px solid var(--ink); padding-top:18px; display:flex; flex-direction:column; gap:22px; min-width:0}
+.entry{display:grid; grid-template-columns:auto 1fr; gap:4px 18px; font-family:var(--f-mono); font-size:13px; color:var(--ink-2)}
+.entry b{font-weight:500; color:var(--ink)}
+.case h3{font-size:clamp(1.5rem,3vw,2.1rem); max-width:24ch}
+.case-body{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:36px; align-items:start}
+@media (max-width:860px){.case-body{grid-template-columns:1fr; gap:24px}}
+.story{display:flex; flex-direction:column; gap:16px; max-width:60ch}
+.story strong{font-weight:600}
+.tools{font-family:var(--f-mono); font-size:13px; color:var(--ink-2)}
+.viz{margin:0; background:var(--card); border:1px solid var(--rule); padding:18px; display:flex; flex-direction:column; gap:14px; min-width:0}
+.viz figcaption{display:flex; flex-direction:column; gap:2px}
+.viz .big{font-family:var(--f-mono); font-size:1.7rem; font-weight:500; line-height:1.15}
+.viz .cap{font-size:13px; color:var(--ink-2); line-height:1.4}
+.plot{display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:14px; height:224px; padding-top:26px; border-bottom:2px solid var(--ink)}
+.b{display:flex; align-items:flex-end; height:100%}
+.col{position:relative; width:100%; height:var(--h); display:flex; flex-direction:column; justify-content:flex-end; background:var(--new)}
+.col.ref{background:repeating-linear-gradient(135deg, var(--hatch) 0 5px, transparent 5px 10px); border:1px solid var(--hatch)}
+.col.solo{background:var(--new)}
+.col.solo.before{background:var(--hatch)}
+.col .val{position:absolute; left:-6px; right:-6px; bottom:100%; padding-bottom:4px; text-align:center; font-family:var(--f-mono); font-size:12px; white-space:nowrap}
+.seg{display:flex; align-items:center; justify-content:center; font-family:var(--f-mono); font-size:11px; color:var(--seg-ink); overflow:hidden}
+.seg.n{background:var(--new)}
+.seg.o{background:var(--old)}
+.labs{display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:14px; font-family:var(--f-mono); font-size:12px; text-align:center; color:var(--ink-2)}
+.legend{display:flex; flex-wrap:wrap; gap:6px 16px; font-size:12px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:12px; height:12px; display:inline-block}
+.flow{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px 6px; align-items:center; font-size:13px}
+.flow li{padding:5px 10px; border:1px solid var(--rule); background:var(--card)}
+.flow li + li::before{content:"\2192"; margin-right:10px; margin-left:-4px; color:var(--ink-2); font-family:var(--f-mono)}
+.flow li{display:inline-flex; align-items:center}
+
+/* projects */
+.projects{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px}
+@media (max-width:860px){.projects{grid-template-columns:1fr}}
+.proj{background:var(--card); border:1px solid var(--rule); padding:22px; display:flex; flex-direction:column; gap:14px; min-width:0}
+.proj.wide{grid-column:1 / -1; border-top:3px solid var(--ink)}
+.proj h3{font-size:1.45rem}
+.proj .row{display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px}
+.proj p{max-width:70ch}
+.proj .note{font-size:14px; color:var(--ink-2)}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
+.chips li{font-family:var(--f-mono); font-size:12px; padding:4px 9px; border:1px solid var(--rule); background:var(--paper)}
+
+/* toolkit and background */
+.two{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.box{border-top:2px solid var(--ink); padding-top:14px; display:flex; flex-direction:column; gap:12px; min-width:0}
+.box h3{font-size:1.2rem}
+.edu{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.edu li{display:flex; flex-direction:column}
+.edu .d{font-family:var(--f-mono); font-size:12px; color:var(--ink-2)}
+.certs{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:4px}
+
+/* recommendation */
+.quote{margin:0; border-top:2px solid var(--ink); padding-top:18px; display:flex; flex-direction:column; gap:14px; max-width:70ch}
+.quote p{font-size:17px}
+.quote .who{font-family:var(--f-mono); font-size:13px; color:var(--ink-2)}
+
+/* contact */
+.cta{background:var(--ink); color:var(--paper); padding:clamp(24px,5vw,44px); display:flex; flex-direction:column; gap:20px; min-width:0}
+.cta h2{font-size:clamp(1.8rem,4vw,2.8rem); max-width:20ch}
+.cta p{max-width:58ch; font-size:17px}
+.mail{display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px}
+.mail code{font-family:var(--f-mono); font-size:clamp(15px,3.6vw,20px); border-bottom:2px solid var(--paper); padding-bottom:2px; user-select:all; overflow-wrap:anywhere}
+.cta .btn{background:var(--paper); color:var(--ink); border-color:var(--paper)}
+.cta .btn.ghost{background:transparent; color:var(--paper)}
+.cta a{color:var(--paper)}
+.cta .btn:focus-visible,.cta a:focus-visible{outline-color:var(--paper)}
+.status{font-family:var(--f-mono); font-size:13px; min-height:1.4em}
+.foot{font-family:var(--f-mono); font-size:12px; color:var(--ink-2); display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 20px}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="top">
+    <div class="brand">Sitti Hadija</div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#cases">Case files</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <p class="eyebrow">Accounting, tax and finance &middot; Bogor, Indonesia</p>
+    <h1>Accountant who turns financial records into analysis and automation.</h1>
+    <p class="about">I'm an accountant with 8 years in accounting, tax and finance. I build financial records from raw transactions, read them like an analyst to see what needs fixing, and now I'm learning SQL and building finance automation with AI tools. I'm aiming for finance analyst and data roles where accounting depth matters.</p>
+    <div class="actions">
+      <a class="btn" href="#cases">See the case files</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="figures" role="list" aria-label="Highlights">
+      <div class="fig" role="listitem"><span class="n">&gt;300%</span><span class="c">growth in monthly receivable collections within 3 months, PT JMMS</span></div>
+      <div class="fig" role="listitem"><span class="n">Rp200 &rarr; 700 jt</span><span class="c">company monthly income during my 4 years at PT Hayuri Berkah Berlimpah</span></div>
+      <div class="fig" role="listitem"><span class="n">8 years</span><span class="c">in accounting, tax and finance, with two financial systems built from raw data</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="pos-h">
+    <div class="sec-head">
+      <h2 id="pos-h">Accountant first. Analysis and automation on top.</h2>
+      <p>Each point below links back to work I've done.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <span class="tag live">Foundation</span>
+        <h3>Accountant</h3>
+        <p class="lead">I can take a business with loose records and give it a working set of books.</p>
+        <ul>
+          <li>Built the full accounting cycle from raw data twice, at Klinik B'Care and PT Hayuri.</li>
+          <li>Prepare tax filings in Coretax: VAT, PPh 21 and the annual corporate return.</li>
+          <li>Work in Mekari Jurnal and Excel, and hold the Xero Associate certification.</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <span class="tag live">In practice</span>
+        <h3>Finance analyst</h3>
+        <p class="lead">I use the books to find out what is really happening and what to change.</p>
+        <ul>
+          <li>Ran a monthly cost review with the owner at PT Hayuri to decide which costs to trim and what to optimize.</li>
+          <li>Split JMMS collections into old and new invoices to see what the cash was made of.</li>
+          <li>Presented findings with Excel charts so a non-finance owner could act on them.</li>
+        </ul>
+      </article>
+      <article class="pillar">
+        <span class="tag">Building</span>
+        <h3>Data and automation</h3>
+        <p class="lead">I'm turning the repeatable parts of finance work into tools.</p>
+        <ul>
+          <li>Financial Statement Insight Analyst, an ongoing AI project for UMKM financial statements.</li>
+          <li>FinAuto, which turns invoices and bank data into mapped entries and dashboards.</li>
+          <li>Learning SQL, Power Query and Looker Studio.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="cases" aria-labelledby="cases-h">
+    <div class="sec-head">
+      <h2 id="cases-h">Case files</h2>
+      <p>Three jobs, each told as a short story: where things stood, what I was asked to do, what I did, and what changed.</p>
+    </div>
+
+    <div class="cases">
+
+      <!-- JMMS -->
+      <article class="case">
+        <div class="entry">
+          <span>Period</span><b>Jan &ndash; Apr 2026 (3-month contract)</b>
+          <span>Entity</span><b>PT JMMS, about 80 employees</b>
+          <span>Role</span><b>Account Receivable &amp; Tax Staff</b>
+        </div>
+        <h3>Turning slow collections into Rp1 billion a month</h3>
+        <div class="case-body">
+          <div class="story">
+            <p>When I joined PT JMMS, collections were stuck at about Rp100&ndash;200 million a month, and many unpaid invoices were left over from earlier periods. My job was to collect both current-year and prior-year receivables.</p>
+            <p>I started by finding the PIC contact for every unpaid project, then followed up on a steady rhythm over WhatsApp and email in a corporate tone. Some messages were not landing, so I added face-to-face meetings. Alongside that I prepared VAT invoices, PPh 21 and the annual corporate tax return in Coretax.</p>
+            <p>Collections reached <strong>Rp400 million, Rp700 million and Rp1 billion</strong> in months one to three, growth of more than 300%. The mix changed too. Invoices from earlier periods fell from 70% of collections to 10%, so most of the cash coming in was from new invoices.</p>
+            <p class="tools">Tools: Coretax, WhatsApp and email follow-up</p>
+          </div>
+          <figure class="viz">
+            <figcaption>
+              <span class="big">Rp1 bn</span>
+              <span class="cap">monthly collections by month 3, up from Rp100&ndash;200 jt</span>
+            </figcaption>
+            <div class="chart" style="--n:4">
+              <div class="plot" role="img" aria-label="Monthly collections in million rupiah. Before: 100 to 200. Month 1: 400, of which 70 percent from invoices of earlier periods. Month 2: 700, 20 percent from earlier periods. Month 3: 1,000, 10 percent from earlier periods.">
+                <div class="b"><div class="col ref" style="--h:20%"><span class="val">100&ndash;200</span></div></div>
+                <div class="b"><div class="col" style="--h:40%"><span class="val">400</span><div class="seg n" style="height:30%">30%</div><div class="seg o" style="height:70%">70%</div></div></div>
+                <div class="b"><div class="col" style="--h:70%"><span class="val">700</span><div class="seg n" style="height:80%">80%</div><div class="seg o" style="height:20%">20%</div></div></div>
+                <div class="b"><div class="col" style="--h:100%"><span class="val">1,000</span><div class="seg n" style="height:90%">90%</div><div class="seg o" style="height:10%">10%</div></div></div>
+              </div>
+              <div class="labs"><span>Before</span><span>Month 1</span><span>Month 2</span><span>Month 3</span></div>
+            </div>
+            <div class="legend">
+              <span><i style="background:var(--new)"></i>Collected from new invoices</span>
+              <span><i style="background:var(--old)"></i>Collected from invoices of earlier periods</span>
+            </div>
+            <ol class="flow" aria-label="How it worked">
+              <li>Unpaid projects</li><li>PIC contact</li><li>Steady follow-up</li><li>Face-to-face meeting</li><li>Cash in</li>
+            </ol>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Hayuri -->
+      <article class="case">
+        <div class="entry">
+          <span>Period</span><b>Jan 2019 &ndash; Feb 2023 (about 4 years)</b>
+          <span>Entity</span><b>PT Hayuri Berkah Berlimpah, about 50 employees</b>
+          <span>Role</span><b>Manager Accounting &amp; Tax</b>
+        </div>
+        <h3>From manual records to a monthly cost review</h3>
+        <div class="case-body">
+          <div class="story">
+            <p>The owner of PT Hayuri was focused on selling. Financial and tax records were still manual and transaction data was incomplete. I was asked to build a structured financial and tax system the owner could rely on.</p>
+            <p>I collected sales, purchase and bank statement data transaction by transaction, then built the full accounting cycle in Mekari Jurnal, from journals to the P&amp;L and balance sheet, with tax reports on top. Once it ran, I handled bank reconciliation, cash flow control, all tax filings and a payroll calculation template. Every month I analyzed costs with Excel charts and went through them with the owner: which costs to make more efficient, and what to optimize so income kept growing.</p>
+            <p>Reporting was structured from the first year. Over my four years in the role, <strong>monthly income grew from roughly Rp200 million to Rp700 million</strong>. The organized system and the monthly cost review were my contribution to that growth.</p>
+            <p class="tools">Tools: Mekari Jurnal, Excel, Coretax</p>
+          </div>
+          <figure class="viz">
+            <figcaption>
+              <span class="big">3.5&times;</span>
+              <span class="cap">company monthly income, Rp million, during my time in the role</span>
+            </figcaption>
+            <div class="chart" style="--n:2">
+              <div class="plot" role="img" aria-label="Company monthly income in million rupiah: about 200 at the start of the role, about 700 within four years.">
+                <div class="b"><div class="col solo before" style="--h:28.6%"><span class="val">~200</span></div></div>
+                <div class="b"><div class="col solo" style="--h:100%"><span class="val">~700</span></div></div>
+              </div>
+              <div class="labs"><span>Start of role</span><span>Within 4 years</span></div>
+            </div>
+            <ol class="flow" aria-label="How it worked">
+              <li>Sales, purchase and bank data</li><li>Accounting cycle in Mekari Jurnal</li><li>P&amp;L and balance sheet</li><li>Monthly cost review with the owner</li>
+            </ol>
+          </figure>
+        </div>
+      </article>
+
+      <!-- B'Care -->
+      <article class="case">
+        <div class="entry">
+          <span>Period</span><b>Jun 2014 &ndash; Jan 2017</b>
+          <span>Entity</span><b>Klinik B'Care, Mimika Baru</b>
+          <span>Role</span><b>Staff Accounting</b>
+        </div>
+        <h3>Books good enough to put in a proposal</h3>
+        <div class="case-body">
+          <div class="story">
+            <p>Klinik B'Care had only patient receipts and bank statements. The owner wanted tidy financial reports to qualify for bank loans and partnerships with large companies, and I was responsible for building the bookkeeping system on my own.</p>
+            <p>I confirmed the purpose of every bank transaction with the owner, then built an Excel recording system with VLOOKUP and HLOOKUP, pivot tables and charts, running from the general journal to the P&amp;L and balance sheet.</p>
+            <p>With orderly books, the clinic could put its financial statements, not only its business activities, into proposals to partner companies. That helped secure <strong>MoUs with several companies</strong> for routine MCU and employee health services, and monthly revenue grew from about Rp50 million to Rp200 million.</p>
+            <p class="tools">Tools: Excel (VLOOKUP, HLOOKUP, pivot tables, charts)</p>
+          </div>
+          <figure class="viz">
+            <figcaption>
+              <span class="big">4&times;</span>
+              <span class="cap">clinic monthly revenue, Rp million</span>
+            </figcaption>
+            <div class="chart" style="--n:2">
+              <div class="plot" role="img" aria-label="Clinic monthly revenue in million rupiah: about 50 before, about 200 after.">
+                <div class="b"><div class="col solo before" style="--h:25%"><span class="val">~50</span></div></div>
+                <div class="b"><div class="col solo" style="--h:100%"><span class="val">~200</span></div></div>
+              </div>
+              <div class="labs"><span>Before</span><span>After</span></div>
+            </div>
+            <ol class="flow" aria-label="How it worked">
+              <li>Receipts and bank statements</li><li>Excel recording system</li><li>P&amp;L and balance sheet</li><li>Proposals to partners</li><li>MoUs signed</li>
+            </ol>
+          </figure>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec" id="projects" aria-labelledby="proj-h">
+    <div class="sec-head">
+      <h2 id="proj-h">Projects</h2>
+      <p>Where I apply accounting logic to data and automation.</p>
+    </div>
+    <div class="projects">
+
+      <article class="proj wide">
+        <div class="row">
+          <span class="tag live">Ongoing</span>
+          <span class="eyebrow">AI &middot; Langflow &middot; Python</span>
+        </div>
+        <h3>Financial Statement Insight Analyst</h3>
+        <p>Many UMKM owners watch only their cash balance, so falling margins and cash flow problems go unseen. This tool works as a digital CFO. It reads an uploaded Excel financial statement, calculates the KPIs, and writes a PDF report that flags profitability issues, cash flow problems and early warning signs.</p>
+        <ol class="flow" aria-label="Pipeline">
+          <li>File Loader</li><li>Parser</li><li>KPI Calculator</li><li>Prompt with Memory</li><li>LLM</li><li>PDF Generator</li><li>Output</li>
+        </ol>
+        <p class="note">Tested on a synthetic dataset I built, "Kopi Nusantara": 12 months of fictional F&amp;B UMKM data across seven sheets, designed so a healthy cash balance hides declining margins. It is still being developed and is not yet released.</p>
+        <ul class="chips"><li>Langflow</li><li>pandas / numpy</li><li>fpdf2</li><li>CFO-style system prompt</li></ul>
+      </article>
+
+      <article class="proj">
+        <div class="row"><span class="tag">Project</span><span class="eyebrow">Gemini &middot; Automation</span></div>
+        <h3>FinAuto</h3>
+        <p>An AI tool that pulls e-receipts, bank mutations and digital invoices from an inbox, maps each transaction to the Chart of Accounts, and syncs structured data to a central database for real-time dashboards.</p>
+        <p><a href="https://gemini.google.com/gem-labs/1O0A09YrmawLOmNGrHoJsAUAtn047r2rE" target="_blank" rel="noopener">View project</a></p>
+      </article>
+
+      <article class="proj">
+        <div class="row"><span class="tag">Prototype</span><span class="eyebrow">Spreadsheet &middot; IFRS</span></div>
+        <h3>IFRS-Ready Accounting Operating System</h3>
+        <p>A spreadsheet system for SMEs covering the Chart of Accounts, journal, General Ledger, Trial Balance, P&amp;L, Balance Sheet, Cash Flow Statement, a financial dashboard and IFRS compliance checks.</p>
+        <p><a href="https://docs.google.com/spreadsheets/d/1XLF4rTfcgBC3oD7KgW_aYSsRx3481-Do/edit?usp=sharing" target="_blank" rel="noopener">View project</a></p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="reco-h">
+    <div class="sec-head"><h2 id="reco-h">Recommendation</h2></div>
+    <blockquote class="quote">
+      <p>I had the pleasure of working with Sitti Hadija at PT Hayuri Berkah Berlimpah (Hijab Hayuri), where she was responsible for accounting and tax activities.</p>
+      <p>She is a reliable, detail-oriented, and responsible professional. She contributed to improving our accounting processes, supporting financial reporting and cash flow management, and providing valuable financial insights for business decisions.</p>
+      <p>I particularly appreciated her sense of ownership, commitment to her responsibilities, and ability to handle financial matters with care and professionalism. I would highly recommend her to any company looking for a dependable accounting and finance professional.</p>
+      <footer class="who">Hijab Hayuri &middot; Owner, PT Hayuri Berkah Berlimpah &middot; LinkedIn recommendation, September 30, 2026 &middot; <a href="https://www.linkedin.com/in/sitti-hadija-3b1096158/" target="_blank" rel="noopener">See it on LinkedIn</a></footer>
+    </blockquote>
+  </section>
+
+  <section class="sec" aria-labelledby="kit-h">
+    <div class="sec-head"><h2 id="kit-h">Toolkit and background</h2></div>
+    <div class="two">
+      <div class="box">
+        <h3>Toolkit</h3>
+        <p class="eyebrow">Used in my work</p>
+        <ul class="chips"><li>Excel</li><li>VLOOKUP / HLOOKUP</li><li>Pivot tables</li><li>Mekari Jurnal</li><li>Coretax</li><li>Xero</li></ul>
+        <p class="eyebrow">Building and learning</p>
+        <ul class="chips"><li>Langflow</li><li>Gemini</li><li>pandas</li><li>SQL</li><li>Power Query</li><li>Looker Studio</li></ul>
+      </div>
+      <div class="box">
+        <h3>Education and certifications</h3>
+        <ul class="edu">
+          <li><span>Pendidikan Profesi Akuntansi, Perbanas Institute</span><span class="d">Dec 2021 &ndash; Aug 2022</span></li>
+          <li><span>Bachelor's, Taxation Policy and Administration, STIAMI</span><span class="d">Jul 2019 &ndash; Jan 2021</span></li>
+          <li><span>Diploma 3, Banking, Corporate, Finance and Securities Law, STIE Jambatan Bulan</span><span class="d">Jun 2013 &ndash; Mar 2016</span></li>
+        </ul>
+        <ul class="certs">
+          <li>Brevet A &amp; B</li>
+          <li>Xero Associate Certification</li>
+          <li>Jurnal Authorized Partner</li>
+          <li>Getting Started with Data</li>
+          <li>AI Fundamentals: Foundations for Understanding AI</li>
+          <li>Data Science with Microsoft Fabric</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact" aria-labelledby="contact-h">
+    <p class="eyebrow" style="color:inherit;opacity:.8">Open to finance analyst, finance reporting and finance automation roles</p>
+    <h2 id="contact-h">Need an accountant who can read the numbers and build the system around them?</h2>
+    <p>Send me a message with the role or the problem you're working on. I'll reply with how my experience fits, and I'm happy to walk through any case file above in more detail.</p>
+    <div class="mail">
+      <code id="email">sitihadija48@gmail.com</code>
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="mailto:sitihadija48@gmail.com">Open mail app</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/sitti-hadija-3b1096158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    
+  </section>
+
+  <footer class="foot">
+    <span>Sitti Hadija &middot; Bogor, Indonesia</span>
+    <span>Figures come from my own work experience. Growth figures show company results I contributed to.</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'), em=document.getElementById('email'), st=document.getElementById('status');
+  if(!btn||!em||!st) return;
+  function selectIt(){
+    try{
+      var r=document.createRange(); r.selectNodeContents(em);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      st.textContent='Email selected. Press Ctrl+C or long-press to copy.';
+    }catch(e){ st.textContent='Please copy the email address shown above.'; }
+  }
+  btn.addEventListener('click',function(){
+    try{
+      navigator.clipboard.writeText(em.textContent.trim()).then(function(){ st.textContent='Email copied.'; }, selectIt);
+    }catch(e){ selectIt(); }
+  });
+})();
+</script>
+</body>
+</html>
